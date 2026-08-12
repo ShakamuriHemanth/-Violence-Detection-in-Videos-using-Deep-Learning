@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Violence Detection AI</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 8%;
+            background: #111827;
+        }
+
+        nav h2 {
+            margin: 0;
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            min-height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 50px;
+            border-radius: 12px;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #38bdf8;
+        }
+
+        p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 25px;
+            background: #0284c7;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Violence Detection AI</h2>
+    <a href="/logouta">Logout</a>
+</nav>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>Video Analysis Dashboard</h1>
+
+        <p>
+            Upload a video and use the trained deep-learning model
+            to analyze frames and classify detected activities.
+        </p>
+
+        <a href="/predictpage" class="button">
+            Analyze Video
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
