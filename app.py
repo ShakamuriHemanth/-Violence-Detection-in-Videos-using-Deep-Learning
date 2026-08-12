@@ -17,7 +17,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from PIL import Image
 from database import *
-from test import*
+import cv2
 from pathlib import Path
 from sendmail import sendmail
 import re 
