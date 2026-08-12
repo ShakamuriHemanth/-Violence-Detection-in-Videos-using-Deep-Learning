@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze Video | Violence Detection AI</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .upload-box {
+            width: 550px;
+            padding: 45px;
+            background: #1e293b;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #38bdf8;
+        }
+
+        p {
+            color: #cbd5e1;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 20px;
+            margin: 25px 0;
+            background: #334155;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 14px 30px;
+            background: #0284c7;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 25px;
+            color: #38bdf8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="upload-box">
+
+        <h1>Analyze Video</h1>
+
+        <p>
+            Upload a video file to analyze its frames using the
+            trained violence-detection model.
+        </p>
+
+        <form
+            action="/predict"
+            method="POST"
+            enctype="multipart/form-data">
+
+            <input
+                type="file"
+                name="video"
+                accept="video/*"
+                required>
+
+            <br>
+
+            <button type="submit">
+                Start Detection
+            </button>
+
+        </form>
+
+        <a href="/menua">Back to Dashboard</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
