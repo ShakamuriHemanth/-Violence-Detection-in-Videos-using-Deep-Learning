@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection Result | Violence Detection AI</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            padding: 50px 20px;
+        }
+
+        h1 {
+            color: #38bdf8;
+        }
+
+        p {
+            color: #cbd5e1;
+        }
+
+        .video-container {
+            max-width: 850px;
+            margin: 30px auto;
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        img {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 25px;
+            margin: 10px;
+            background: #0284c7;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Detection Result</h1>
+
+    <p>
+        The uploaded video is being analyzed by the deep-learning model.
+    </p>
+
+    <div class="video-container">
+        <img src="{{ video_path }}" alt="Processed video stream">
+    </div>
+
+    <a href="/predictpage" class="button">
+        Analyze Another Video
+    </a>
+
+    <a href="/menua" class="button">
+        Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>
