@@ -552,6 +552,72 @@ def predict():
     )
 
 
+
+# ---------------------------------------------------------
+# Built-in sample video prediction
+# ---------------------------------------------------------
+
+@app.route("/predict_sample/<video_name>")
+def predict_sample(video_name):
+
+    global video_stream
+    global process_thread
+    global stop_processing
+    global video_frame
+
+    allowed_videos = {
+        "p1.mp4",
+        "p2.mp4",
+        "p3.mp4",
+        "p4.mp4",
+        "p5.mp4",
+        "p6.mp4",
+    }
+
+    if video_name not in allowed_videos:
+        return "Invalid sample video", 404
+
+    video_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        video_name,
+    )
+
+    if not os.path.exists(video_path):
+        return "Sample video not found", 404
+
+    # Stop any currently running video process
+    stop_processing = True
+
+    if process_thread and process_thread.is_alive():
+        process_thread.join(timeout=3)
+
+    stop_processing = False
+
+    # Release previous video stream
+    if video_stream.isOpened():
+        video_stream.release()
+
+    video_frame = None
+
+    # Open the selected built-in sample video
+    video_stream = cv2.VideoCapture(video_path)
+
+    if not video_stream.isOpened():
+        return "Unable to open sample video", 500
+
+    # Start processing the sample video
+    process_thread = threading.Thread(
+        target=process_video,
+        daemon=True,
+    )
+
+    process_thread.start()
+
+    return render_template(
+        "result.html",
+        video_path="/video_feed",
+    )
+
 # ---------------------------------------------------------
 # Health check for Render
 # ---------------------------------------------------------
