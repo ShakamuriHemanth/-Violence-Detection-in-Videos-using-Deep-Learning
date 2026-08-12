@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Analyze Video | Violence Detection AI</title>
 
     <style>
@@ -18,10 +19,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 40px 20px;
+            box-sizing: border-box;
         }
 
         .upload-box {
-            width: 550px;
+            width: 600px;
             padding: 45px;
             background: #1e293b;
             border-radius: 12px;
@@ -32,8 +35,14 @@
             color: #38bdf8;
         }
 
+        h2 {
+            color: #38bdf8;
+            margin-top: 30px;
+        }
+
         p {
             color: #cbd5e1;
+            line-height: 1.6;
         }
 
         input[type="file"] {
@@ -41,6 +50,7 @@
             padding: 20px;
             margin: 25px 0;
             background: #334155;
+            color: white;
             border-radius: 8px;
             box-sizing: border-box;
         }
@@ -52,12 +62,68 @@
             border: none;
             border-radius: 7px;
             cursor: pointer;
+            font-size: 15px;
         }
 
-        a {
+        button:hover {
+            background: #0369a1;
+        }
+
+        .divider {
+            margin: 35px 0;
+            border: 0;
+            border-top: 1px solid #475569;
+        }
+
+        .sample-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .sample-button {
             display: block;
-            margin-top: 25px;
+            padding: 14px 10px;
+            background: #334155;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            margin: 0;
+            transition: 0.2s;
+        }
+
+        .sample-button:hover {
+            background: #0284c7;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 30px;
             color: #38bdf8;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .error {
+            background: #7f1d1d;
+            color: #fecaca;
+            padding: 12px;
+            border-radius: 7px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 600px) {
+            .sample-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .upload-box {
+                padding: 25px;
+            }
         }
     </style>
 </head>
@@ -71,9 +137,17 @@
         <h1>Analyze Video</h1>
 
         <p>
-            Upload a video file to analyze its frames using the
-            trained violence-detection model.
+            Upload your own video or select one of the built-in
+            sample videos to test the violence-detection model.
         </p>
+
+        {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <!-- Upload your own video -->
 
         <form
             action="/predict"
@@ -94,7 +168,59 @@
 
         </form>
 
-        <a href="/menua">Back to Dashboard</a>
+        <!-- Sample videos -->
+
+        <hr class="divider">
+
+        <h2>Try a Sample Video</h2>
+
+        <p>
+            Don't have a video? Select one of the demo clips below.
+        </p>
+
+        <div class="sample-grid">
+
+            <a
+                href="/predict_sample/p1.mp4"
+                class="sample-button">
+                Sample 1
+            </a>
+
+            <a
+                href="/predict_sample/p2.mp4"
+                class="sample-button">
+                Sample 2
+            </a>
+
+            <a
+                href="/predict_sample/p3.mp4"
+                class="sample-button">
+                Sample 3
+            </a>
+
+            <a
+                href="/predict_sample/p4.mp4"
+                class="sample-button">
+                Sample 4
+            </a>
+
+            <a
+                href="/predict_sample/p5.mp4"
+                class="sample-button">
+                Sample 5
+            </a>
+
+            <a
+                href="/predict_sample/p6.mp4"
+                class="sample-button">
+                Sample 6
+            </a>
+
+        </div>
+
+        <a href="/menua" class="back-link">
+            Back to Dashboard
+        </a>
 
     </div>
 
