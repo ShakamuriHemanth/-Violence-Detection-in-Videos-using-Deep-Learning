@@ -8,5 +8,4 @@ tensorflow
 opencv-python-headless
 joblib
 geopy
-mysqlclient
 matplotlib
