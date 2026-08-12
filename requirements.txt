@@ -1,0 +1,12 @@
+Flask
+gunicorn
+numpy
+pandas
+Pillow
+scikit-learn
+tensorflow
+opencv-python-headless
+joblib
+geopy
+mysqlclient
+matplotlib
